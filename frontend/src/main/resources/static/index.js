@@ -9,9 +9,9 @@
                 templateUrl: 'welcome/welcome.html',
                 controller: 'welcomeController'
             })
-            .when('/emploees', {
-                templateUrl: 'emploees/emploees.html',
-                controller: 'emploeesController'
+            .when('/employees', {
+                templateUrl: 'employees/employees.html',
+                controller: 'employeesController'
             })
             .when('/positions', {
                 templateUrl: 'positions/positions.html',
