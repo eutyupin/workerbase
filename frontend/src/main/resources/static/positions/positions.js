@@ -1,9 +1,10 @@
-angular.module('worker').controller('positionsController', function ($scope, $http, $localStorage) {
+angular.module('worker').controller('positionsController', function ($scope, $http) {
 
-    $scope.loadCart = function () {
-        $http.get('http://localhost:5555/cart/api/v1/cart/' + $localStorage.marchMarketGuestCartId)
+    $scope.loadPositions = function () {
+        $http.get('http://localhost::9999/worker-back/api/positions')
             .then(function (response) {
-                $scope.cart = response.data;
+                $scope.positionsList = response.data;
             });
     };
+    $scope.loadPositions();
 });

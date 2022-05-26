@@ -24,6 +24,7 @@ create table employees
     gender_id       bigint references genders(id),
     age             numeric(3,0) not null,
     position_id     bigint references positions(id),
+    address         varchar(255),
     created_at      timestamp default current_timestamp,
     updated_at      timestamp default current_timestamp
 );
@@ -45,16 +46,7 @@ values ('слесарь', 1),
 insert into employees (fio, gender_id, age, position_id)
 values ('Сергеев Сергей Сергеевич', 1, 27, 1),
        ('Иванов Иван Иванович', 1, 38, 2),
-       ('Семенов Семен Семенович', 1, 43, 3);
-
--- create table orders_items
--- (
---     id                      bigserial primary key,
---     order_id                bigint references orders (id),
---     product_id              bigint references products (id),
---     price_per_product       numeric(8, 2),
---     quantity                int,
---     price                   numeric(8, 2),
---     created_at              timestamp default current_timestamp,
---     updated_at              timestamp default current_timestamp
--- );
+       ('Семенов Семен Семенович', 1, 43, 3),
+       ('Привалова Надежда Сергеевна', 2, 56, 3),
+       ('Старовойтова Светлана Ивановна', 2, 47, 2),
+       ('Аникина Екатерина Викторовна', 2, 31, 3);

@@ -1,0 +1,37 @@
+<div>
+    <p></p>
+    <h3>Личные карточки работников</h3>
+    <p></p>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>№</td>
+                <td>Ф.И.О.</td>
+                <td>Пол</td>
+                <td>Возраст</td>
+                <td>Должность</td>
+                <td>Адрес</td>
+                <td>Дата создания записи о работнике</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="personalCard in personalCardsList">
+                <td>{{personalCard.id}}</td>
+                <td>{{personalCard.fio}}</td>
+                <td>{{personalCard.gender}}</td>
+                <td>{{personalCard.age}}</td>
+                <td>{{personalCard.position}}</td>
+                <td>{{personalCard.address}}</td>
+                <td>{{personalCard.createdAt}}</td>
+                <td>
+                    <a class="btn btn-outline-danger" ng-click="deleteEmploee(personalCard.id)"><i class="far fa-trash-alt"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" ng-click="editEmploee(personalCard.id)"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

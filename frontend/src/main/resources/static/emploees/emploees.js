@@ -1,10 +1,10 @@
 angular.module('worker').controller('emploeesController', function ($scope, $http) {
-    $scope.loadProducts = function () {
-        $http.get('http://localhost:5555/core/api/v1/products')
+    $scope.loadEmploees = function () {
+        $http.get('http://localhost:9999/worker-back/api/emploees')
             .then(function (response) {
-                $scope.products = response.data;
+                $scope.emploeeList = response.data;
             });
     };
 
-    // $scope.loadProducts();
+    $scope.loadEmploees();
 });
