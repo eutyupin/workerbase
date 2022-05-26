@@ -1,0 +1,23 @@
+<div>
+    <p></p>
+    <h3>Список должностей</h3>
+    <p></p>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>№</td>
+                <td>Должность</td>
+                <td>Категория</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="position in positionsList">
+                <td>{{position.id}}</td>
+                <td>{{position.title}}</td>
+                <td>{{position.category}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

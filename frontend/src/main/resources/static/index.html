@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html ng-app="worker">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+</head>
+
+<body>
+
+<div class="container" ng-controller="indexController">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/">Главная страница</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/emploees">Список работников</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/positions">Список должностей</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ng-view></ng-view>
+
+    <script src="index.js"></script>
+    <script src="emploees/emploees.js"></script>
+    <script src="positions/positions.js"></script>
+    <script src="welcome/welcome.js"></script>
+</div>
+</body>
+</html>

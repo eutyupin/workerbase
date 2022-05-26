@@ -1,0 +1,27 @@
+<div>
+    <p></p>
+    <h3>Список товаров</h3>
+    <p></p>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>№</td>
+                <td>Ф.И.О.</td>
+                <td>Пол</td>
+                <td>Возраст</td>
+                <td>Должность</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="emploee in emploeeList">
+                <td>{{emploee.id}}</td>
+                <td>{{emploee.fio}}</td>
+                <td>{{emploee.gender}}</td>
+                <td>{{emploee.age}}</td>
+                <td>{{emploee.position}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
