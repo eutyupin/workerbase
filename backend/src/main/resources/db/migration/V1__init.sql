@@ -1,46 +1,60 @@
+create table genders
+(
+    id              bigserial primary key,
+    title           varchar(1)
+);
+
 create table categories
 (
+    id    bigserial primary key,
+    title varchar(255) not null
+);
+
+create table positions
+(
     id              bigserial primary key,
-    title           varchar(255),
+    title           varchar(255) not null,
+    category_id     bigint references categories(id)
+);
+
+create table employees
+(
+    id              bigserial primary key,
+    fio             varchar(255) not null,
+    gender_id       bigint references genders(id),
+    age             numeric(3,0) not null,
+    position_id     bigint references positions(id),
     created_at      timestamp default current_timestamp,
     updated_at      timestamp default current_timestamp
 );
 
-create table products
-(
-    id              bigserial primary key,
-    title           varchar(255),
-    price           numeric(8, 2) not null,
-    category_id     bigint references categories (id),
-    created_at      timestamp default current_timestamp,
-    updated_at      timestamp default current_timestamp
-);
+insert into genders (title)
+values ('М'),
+       ('Ж');
 
-insert into categories (title) values ('Еда');
+insert into categories (title)
+    values ('рабочая специальность'),
+           ('специалист'),
+           ('служащий');
 
-insert into products (title, price, category_id)
-values ('Молоко', 100.20, 1),
-       ('Хлеб', 80.20, 1),
-       ('Сыр', 90.20, 1),
-       ('Масло', 320.00, 1);
+insert into positions (title, category_id)
+values ('слесарь', 1),
+       ('инженер-электроник', 2),
+       ('мастер', 3);
 
-create table orders
-(
-    id              bigserial primary key,
-    username        varchar(255),
-    total_price     numeric(8, 2),
-    created_at      timestamp default current_timestamp,
-    updated_at      timestamp default current_timestamp
-);
+insert into employees (fio, gender_id, age, position_id)
+values ('Сергеев Сергей Сергеевич', 1, 27, 1),
+       ('Иванов Иван Иванович', 1, 38, 2),
+       ('Семенов Семен Семенович', 1, 43, 3);
 
-create table orders_items
-(
-    id                      bigserial primary key,
-    order_id                bigint references orders (id),
-    product_id              bigint references products (id),
-    price_per_product       numeric(8, 2),
-    quantity                int,
-    price                   numeric(8, 2),
-    created_at              timestamp default current_timestamp,
-    updated_at              timestamp default current_timestamp
-);
+-- create table orders_items
+-- (
+--     id                      bigserial primary key,
+--     order_id                bigint references orders (id),
+--     product_id              bigint references products (id),
+--     price_per_product       numeric(8, 2),
+--     quantity                int,
+--     price                   numeric(8, 2),
+--     created_at              timestamp default current_timestamp,
+--     updated_at              timestamp default current_timestamp
+-- );
