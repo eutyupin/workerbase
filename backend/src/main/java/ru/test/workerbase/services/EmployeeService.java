@@ -16,7 +16,7 @@ public class EmployeeService {
 
     public List<EmployeeDto> findAllEmployees() {
         List<EmployeeDto> employeeDtos = new ArrayList<>();
-        employeeRepository.findAllEmployees().forEach(e -> employeeDtos.add(employeeToDtoConverter.employeeConvertToDto(e)));
+        employeeRepository.findAll().forEach(e -> employeeDtos.add(employeeToDtoConverter.employeeConvertToDto(e)));
         return employeeDtos;
     }
 

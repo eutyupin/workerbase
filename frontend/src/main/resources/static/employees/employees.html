@@ -3,10 +3,7 @@
     <h3>Список работников</h3>
     <p></p>
     <div>
-<!--        <div class="col-auto">-->
-<!--            <button type="submit" class="btn btn-primary mb-3" ng-click="createNewProduct">Создать</button>-->
-<!--        </div>-->
-<!--        <p></p>-->
+
         <table class="table table-hover">
             <thead>
             <tr>
@@ -16,10 +13,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="employee in employeeList">
-                <td>{{employee.id}}</td>
-                <td>{{employee.fio}}</td>
-                <td>{{employee.position}}</td>
+            <tr ng-repeat="e in employees">
+                <td>{{e.id}}</td>
+                <td>{{e.fio}}</td>
+                <td>{{e.position}}</td>
             </tr>
             </tbody>
         </table>

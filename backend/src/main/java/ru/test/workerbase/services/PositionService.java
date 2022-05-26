@@ -16,7 +16,7 @@ public class PositionService {
 
     public List<PositionDto> findAllPositions() {
         List<PositionDto> positionDtos = new ArrayList<>();
-        positionRepository.findAllPositions().forEach(p -> positionDtos.add(positionToDtoConverter.positionConvertToDto(p)));
+        positionRepository.findAll().forEach(p -> positionDtos.add(positionToDtoConverter.positionConvertToDto(p)));
         return positionDtos;
     }
 }

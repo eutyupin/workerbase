@@ -2,9 +2,9 @@ angular.module('worker').controller('personalcardsController', function ($scope,
     $scope.loadCards = function () {
         $http.get('http://localhost:8189/worker-back/api/employees')
             .then(function (response) {
-                $scope.personalCardsList = response.data;
+                alert('OK')
+                // $scope.cards = response.data;
             });
     };
-
     $scope.loadCards();
 });

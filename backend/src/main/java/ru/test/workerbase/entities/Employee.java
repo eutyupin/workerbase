@@ -1,6 +1,7 @@
 package ru.test.workerbase.entities;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,7 +10,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "positions")
+@NoArgsConstructor
+@Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,14 +21,14 @@ public class Employee {
     @Column(name = "fio")
     private String fio;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "gender_id")
     private Gender gender;
 
     @Column(name = "age")
     private Integer age;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "position_id")
     private Position position;
 

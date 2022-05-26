@@ -1,11 +1,14 @@
 package ru.test.workerbase.entities;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "categories")
 public class Category {
 
@@ -16,5 +19,9 @@ public class Category {
 
     @Column(name = "title")
     private String title;
+
+//    @OneToOne(mappedBy = "category")
+//    private List<Position> positions;
+
 
 }
