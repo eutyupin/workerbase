@@ -19,9 +19,4 @@ public class Category {
 
     @Column(name = "title")
     private String title;
-
-//    @OneToOne(mappedBy = "category")
-//    private List<Position> positions;
-
-
 }

@@ -23,6 +23,6 @@ public class Position {
     @JoinColumn(name = "category_id")
     private Category category;
 
-//    @OneToMany(mappedBy = "position")
-//    private List<Employee> employees;
+    @OneToMany(mappedBy = "position")
+    private List<Employee> employees;
 }
