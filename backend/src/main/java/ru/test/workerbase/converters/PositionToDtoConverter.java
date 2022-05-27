@@ -12,7 +12,7 @@ public class PositionToDtoConverter {
         PositionDto positionDto = new PositionDto();
         positionDto.setId(position.getId());
         positionDto.setTitle(position.getTitle());
-        positionDto.setCategory(position.getCategory().getTitle());
+        positionDto.setCategory(position.getCategory());
         return positionDto;
     }
 }

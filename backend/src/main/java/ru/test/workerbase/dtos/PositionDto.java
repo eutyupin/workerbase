@@ -1,6 +1,7 @@
 package ru.test.workerbase.dtos;
 
 import lombok.Data;
+import ru.test.workerbase.entities.Category;
 
 @Data
 public class PositionDto {
@@ -9,5 +10,5 @@ public class PositionDto {
 
     private String title;
 
-    private String category;
+    private Category category;
 }

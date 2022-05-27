@@ -1,6 +1,8 @@
 package ru.test.workerbase.dtos;
 
 import lombok.Data;
+import ru.test.workerbase.entities.Gender;
+import ru.test.workerbase.entities.Position;
 
 @Data
 public class EmployeeDto {
@@ -9,11 +11,11 @@ public class EmployeeDto {
 
     private String fio;
 
-    private String gender;
+    private Gender gender;
 
     private Integer age;
 
-    private String position;
+    private Position position;
 
     private String address;
 

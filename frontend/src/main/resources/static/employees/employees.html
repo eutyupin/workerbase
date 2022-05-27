@@ -13,10 +13,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="e in employees">
+            <tr ng-repeat="e in employeesList">
                 <td>{{e.id}}</td>
                 <td>{{e.fio}}</td>
-                <td>{{e.position}}</td>
+                <td>{{e.position.title}}</td>
             </tr>
             </tbody>
         </table>

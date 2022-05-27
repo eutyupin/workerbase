@@ -14,8 +14,8 @@ public class EmployeeToDtoConverter {
         employeeDto.setFio(employee.getFio());
         employeeDto.setAge(employee.getAge());
         employeeDto.setAddress(employee.getAddress());
-        employeeDto.setGender(employee.getGender().getTitle());
-        employeeDto.setPosition(employee.getPosition().getTitle());
+        employeeDto.setGender(employee.getGender());
+        employeeDto.setPosition(employee.getPosition());
         employeeDto.setCreatedAt(employee.getCreatedAt().toString());
         employeeDto.setUpdatedAt(employee.getUpdatedAt().toString());
         return employeeDto;

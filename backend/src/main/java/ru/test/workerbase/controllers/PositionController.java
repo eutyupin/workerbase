@@ -1,17 +1,15 @@
 package ru.test.workerbase.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import ru.test.workerbase.dtos.EmployeeDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import ru.test.workerbase.dtos.PositionDto;
-import ru.test.workerbase.services.EmployeeService;
 import ru.test.workerbase.services.PositionService;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/positions")
 @RequiredArgsConstructor
 public class PositionController {
@@ -20,5 +18,16 @@ public class PositionController {
     @GetMapping
     public List<PositionDto> getAllPositions() {
         return positionService.findAllPositions();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createPosition(PositionDto positionDto) {
+        positionService.createPosition(positionDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePosition(@PathVariable Long id) {
+        positionService.deletePosition(id);
     }
 }

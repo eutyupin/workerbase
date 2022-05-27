@@ -20,19 +20,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="c in cards">
+            <tr ng-repeat="c in cardsList">
                 <td>{{c.id}}</td>
                 <td>{{c.fio}}</td>
-                <td>{{c.gender}}</td>
+                <td>{{c.gender.title}}</td>
                 <td>{{c.age}}</td>
-                <td>{{c.position}}</td>
+                <td>{{c.position.title}}</td>
                 <td>{{c.address}}</td>
                 <td>{{c.createdAt}}</td>
                 <td>
-                    <a class="btn btn-outline-danger" ng-click="deleteemployee(c.id)"><i class="far fa-trash-alt"></i></a>
+                    <a class="btn btn-outline-primary" ng-click="editEmployee(personalCard.id)">Изменить</a>
                 </td>
                 <td>
-                    <a class="btn btn-outline-primary" ng-click="editEmployee(personalCard.id)"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                    <a class="btn btn-outline-danger" ng-click="deleteemployee(c.id)">Удалить</a>
                 </td>
             </tr>
             </tbody>
