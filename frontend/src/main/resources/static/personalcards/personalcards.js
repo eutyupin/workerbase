@@ -28,7 +28,6 @@ angular.module('worker').controller('personalcardsController', function ($scope,
     }
 
     $scope.createNewEmployee = function () {
-        alert($scope.newEmployee.fio);
         $http.post('http://localhost:8189/worker-back/api/employees', $scope.newEmployee)
             .then(function (responce) {
                 $scope.loadCards();
@@ -39,7 +38,6 @@ angular.module('worker').controller('personalcardsController', function ($scope,
                 $scope.newEmployeeAddress.value= '';
             });
     }
-
 
     $scope.loadCards();
     $scope.loadGenders();
