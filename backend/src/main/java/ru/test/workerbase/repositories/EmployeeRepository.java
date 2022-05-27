@@ -3,9 +3,7 @@ package ru.test.workerbase.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import ru.test.workerbase.dtos.EmployeeDto;
 import ru.test.workerbase.entities.Employee;
-import ru.test.workerbase.entities.Position;
 
 import java.util.List;
 
@@ -28,8 +26,13 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
             "ORDER BY employees.id;", nativeQuery = true)
     List<Employee> findAllEmployees();
 
+//    Создание нового рабочего в RAW SQL
+//    INSERT INTO employees(fio, gender_id, age, position_id, address)
+//    VALUES(newEmployee.fio, newEmployee.gender.id, newEmployee.age, newEmployee.posotion.id, newEmployee.address);
 
-//    @Query(value = "", nativeQuery = true)
-//    deleteEmployee(Long id);
+//    Удаление рабочего в RAW SQL
+//    DELETE FROM employees WHERE employees.id = employee.id
+
+//
 
 }

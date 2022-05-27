@@ -17,6 +17,10 @@
                 templateUrl: 'positions/positions.html',
                 controller: 'positionsController'
             })
+            .when('/categories', {
+                templateUrl: 'categories/categories.html',
+                controller: 'categoriesController'
+            })
             .when('/personalcards', {
                 templateUrl: 'personalcards/personalcards.html',
                 controller: 'personalcardsController'

@@ -9,7 +9,7 @@ import ru.test.workerbase.services.PositionService;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/positions")
 @RequiredArgsConstructor
 public class PositionController {
@@ -22,7 +22,7 @@ public class PositionController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createPosition(PositionDto positionDto) {
+    public void createPosition(@RequestBody PositionDto positionDto) {
         positionService.createPosition(positionDto);
     }
 

@@ -11,7 +11,6 @@ public class CategoryDtoToCategoryConverter {
 
     public Category convertToCategory(CategoryDto categoryDto) {
         Category newCategory = new Category();
-        newCategory.setId(null);
         newCategory.setTitle(categoryDto.getTitle());
         return  newCategory;
     }

@@ -3,9 +3,30 @@
     <h3>Личные карточки работников</h3>
     <p></p>
     <div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3" ng-click="">Добавить работника</button>
-        </div>
+        <form class="row g-3" ng-submit="createNewEmployee()">
+            <div class="col-auto">
+                <input type="text" class="form-control" id="newEmployeeFio" ng-model="newEmployee.fio" placeholder="Ф.И.О. работника">
+            </div>
+            <div class="col-auto">
+                <input style="width: 100px" type="number" class="form-control" id="newEmployeeAge" ng-model="newEmployee.age" placeholder="Возраст работника">
+            </div>
+            <div >
+                <select style="height: 37px; margin-right: 12px" ng-model="newEmployee.position" id="newEmployeePosition" required >
+                    <option ng-repeat="p in positionsList" ng-value="{{p}}">{{p.title}}</option>
+                </select>
+            </div>
+            <div >
+                <select style="height: 37px; margin-right: 12px" ng-model="newEmployee.gender" id="newEmployeeGender" required >
+                    <option ng-repeat="g in gendersList" ng-value="{{g}}">{{g.title}}</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="newEmployeeAddress" ng-model="newEmployee.address" placeholder="Адрес работника">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary mb-3" ng-click="createNewEmployee">Добавить работника</button>
+    </div>
+    </form>
         <p></p>
         <table class="table table-hover">
             <thead>
@@ -29,10 +50,7 @@
                 <td>{{c.address}}</td>
                 <td>{{c.createdAt}}</td>
                 <td>
-                    <a class="btn btn-outline-primary" ng-click="editEmployee(personalCard.id)">Изменить</a>
-                </td>
-                <td>
-                    <a class="btn btn-outline-danger" ng-click="deleteemployee(c.id)">Удалить</a>
+                    <a class="btn btn-outline-danger" ng-click="deleteEmployee(c.id)">Удалить</a>
                 </td>
             </tr>
             </tbody>

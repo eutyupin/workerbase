@@ -12,10 +12,8 @@ public class PositionDtoToPositionConverter {
 
     public Position convertToPosition(PositionDto positionDto) {
         Position position = new Position();
-        position.setId(null);
         position.setTitle(positionDto.getTitle());
         position.setCategory(positionDto.getCategory());
-        position.setEmployees(new ArrayList<>());
         return  position;
     }
 }

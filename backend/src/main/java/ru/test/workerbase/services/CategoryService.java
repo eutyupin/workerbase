@@ -20,7 +20,7 @@ public class CategoryService {
 
     public List<CategoryDto> findAllCategories() {
         List<CategoryDto> categoriesList = new ArrayList<>();
-        categoryRepository.findAll().forEach(c -> {
+        categoryRepository.findAllCategories().forEach(c -> {
             categoriesList.add(categoryToDtoConverter.convertToDto(c));
         });
         return  categoriesList;

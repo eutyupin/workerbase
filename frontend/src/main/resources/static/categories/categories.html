@@ -1,0 +1,31 @@
+<div>
+    <p></p>
+    <h3>Список категорий должностей</h3>
+    <p></p>
+    <form class="row g-3" ng-submit="createNewCategory()">
+        <div class="col-auto">
+            <input type="text" class="form-control" id="newCategoryTitle" ng-model="newCategory.title" placeholder="Название категории">
+        </div>
+            <button type="submit" class="btn btn-primary mb-3" ng-click="createNewCategory">Добавить категорию</button>
+        </div>
+    </form>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>№</td>
+                <td>Наименование</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="category in categoriesList">
+                <td>{{category.id}}</td>
+                <td>{{category.title}}</td>
+                <td>
+                    <a class="btn btn-outline-danger" ng-click="deleteCategory(category.id)">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

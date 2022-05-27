@@ -22,4 +22,15 @@ public interface PositionRepository extends JpaRepository<Position, Long> {
             "JOIN categories " +
             "ON positions.category_id = categories.id;", nativeQuery=true)
     List<Position> findAllPositions();
+
+//    Создание новой должности в RAW SQL
+//    INSERT INTO positions(title, category_id)
+//    VALUES(newPosition.title, newPosition.category.id);
+
+//    Удаление должности в RAW SQL
+//    DELETE FROM positions WHERE positions.id = position.id
+
+
+
+
 }

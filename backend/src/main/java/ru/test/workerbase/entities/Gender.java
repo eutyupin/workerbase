@@ -19,7 +19,4 @@ public class Gender {
 
     @Column(name = "title")
     private String title;
-
-    @OneToMany(mappedBy = "gender")
-    private List<Employee> employees;
 }

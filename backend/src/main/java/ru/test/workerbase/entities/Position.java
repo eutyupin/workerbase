@@ -22,7 +22,4 @@ public class Position {
     @OneToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
-    @OneToMany(mappedBy = "position")
-    private List<Employee> employees;
 }

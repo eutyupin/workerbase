@@ -9,7 +9,7 @@ import ru.test.workerbase.services.EmployeeService;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @RequestMapping("/api/employees")
 public class EmployeeController {
@@ -22,7 +22,7 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createEmployee(EmployeeDto employeeDto) {
+    public void createEmployee(@RequestBody EmployeeDto employeeDto) {
         employeeService.createEmployee(employeeDto);
     }
 

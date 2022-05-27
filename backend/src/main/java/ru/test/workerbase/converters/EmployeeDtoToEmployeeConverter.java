@@ -13,7 +13,6 @@ public class EmployeeDtoToEmployeeConverter {
 
     public Employee convertToEmployee(EmployeeDto employeeDto) {
         Employee newEmployee = new Employee();
-        newEmployee.setId(null);
         newEmployee.setFio(employeeDto.getFio());
         newEmployee.setAge(employeeDto.getAge());
         newEmployee.setAddress(employeeDto.getAddress());

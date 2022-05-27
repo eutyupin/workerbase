@@ -21,14 +21,14 @@ public class Employee {
     @Column(name = "fio")
     private String fio;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "gender_id")
     private Gender gender;
 
     @Column(name = "age")
     private Integer age;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "position_id")
     private Position position;
 

@@ -7,7 +7,8 @@ import ru.test.workerbase.services.CategoryService;
 
 import java.util.List;
 
-@CrossOrigin
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -20,7 +21,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public void createCategory(CategoryDto categoryDto) {
+    public void createCategory(@RequestBody CategoryDto categoryDto) {
         categoryService.createCategory(categoryDto);
     }
 

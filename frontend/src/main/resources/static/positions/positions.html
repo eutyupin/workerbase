@@ -2,6 +2,20 @@
     <p></p>
     <h3>Список должностей</h3>
     <p></p>
+    <form class="row g-3" ng-submit="createNewPosition()">
+    <div class="col-auto">
+        <input type="text" class="form-control" id="newPositionTitle" ng-model="newPosition.title" placeholder="Название должности">
+    </div>
+        <div >
+        <select style="height: 37px; margin-right: 12px" ng-model="newPosition.category" id="newPositionCategory" required >
+            <option ng-repeat="c in categoriesList" ng-value="{{c}}">{{c.title}}</option>
+        </select>
+
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary mb-3" ng-click="createNewPosition">Добавить должность</button>
+    </div>
+</form>
     <div>
         <table class="table table-hover">
             <thead>
@@ -15,7 +29,7 @@
             <tr ng-repeat="p in positionsList">
                 <td>{{p.id}}</td>
                 <td>{{p.title}}</td>
-                <td>{{p.category}}</td>
+                <td>{{p.category.title}}</td>
                 <td>
                     <a class="btn btn-outline-danger" ng-click="deletePosition(p.id)">Удалить</a>
                 </td>
