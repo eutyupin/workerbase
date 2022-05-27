@@ -1,0 +1,419 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.3 (Ubuntu 14.3-0ubuntu0.22.04.1)
+-- Dumped by pg_dump version 14.3 (Ubuntu 14.3-0ubuntu0.22.04.1)
+
+-- Started on 2022-05-27 15:04:43 +07
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 213 (class 1259 OID 17496)
+-- Name: categories; Type: TABLE; Schema: public; Owner: worker
+--
+
+CREATE TABLE public.categories (
+    id bigint NOT NULL,
+    title character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.categories OWNER TO worker;
+
+--
+-- TOC entry 212 (class 1259 OID 17495)
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: worker
+--
+
+CREATE SEQUENCE public.categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.categories_id_seq OWNER TO worker;
+
+--
+-- TOC entry 3402 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: worker
+--
+
+ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
+
+
+--
+-- TOC entry 217 (class 1259 OID 17515)
+-- Name: employees; Type: TABLE; Schema: public; Owner: worker
+--
+
+CREATE TABLE public.employees (
+    id bigint NOT NULL,
+    fio character varying(255) NOT NULL,
+    gender_id bigint,
+    age numeric(3,0) NOT NULL,
+    position_id bigint,
+    address character varying(255),
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+);
+
+
+ALTER TABLE public.employees OWNER TO worker;
+
+--
+-- TOC entry 216 (class 1259 OID 17514)
+-- Name: employees_id_seq; Type: SEQUENCE; Schema: public; Owner: worker
+--
+
+CREATE SEQUENCE public.employees_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.employees_id_seq OWNER TO worker;
+
+--
+-- TOC entry 3403 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: employees_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: worker
+--
+
+ALTER SEQUENCE public.employees_id_seq OWNED BY public.employees.id;
+
+
+--
+-- TOC entry 209 (class 1259 OID 17479)
+-- Name: flyway_schema_history; Type: TABLE; Schema: public; Owner: worker
+--
+
+CREATE TABLE public.flyway_schema_history (
+    installed_rank integer NOT NULL,
+    version character varying(50),
+    description character varying(200) NOT NULL,
+    type character varying(20) NOT NULL,
+    script character varying(1000) NOT NULL,
+    checksum integer,
+    installed_by character varying(100) NOT NULL,
+    installed_on timestamp without time zone DEFAULT now() NOT NULL,
+    execution_time integer NOT NULL,
+    success boolean NOT NULL
+);
+
+
+ALTER TABLE public.flyway_schema_history OWNER TO worker;
+
+--
+-- TOC entry 211 (class 1259 OID 17489)
+-- Name: genders; Type: TABLE; Schema: public; Owner: worker
+--
+
+CREATE TABLE public.genders (
+    id bigint NOT NULL,
+    title character varying(1)
+);
+
+
+ALTER TABLE public.genders OWNER TO worker;
+
+--
+-- TOC entry 210 (class 1259 OID 17488)
+-- Name: genders_id_seq; Type: SEQUENCE; Schema: public; Owner: worker
+--
+
+CREATE SEQUENCE public.genders_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.genders_id_seq OWNER TO worker;
+
+--
+-- TOC entry 3404 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: genders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: worker
+--
+
+ALTER SEQUENCE public.genders_id_seq OWNED BY public.genders.id;
+
+
+--
+-- TOC entry 215 (class 1259 OID 17503)
+-- Name: positions; Type: TABLE; Schema: public; Owner: worker
+--
+
+CREATE TABLE public.positions (
+    id bigint NOT NULL,
+    title character varying(255) NOT NULL,
+    category_id bigint
+);
+
+
+ALTER TABLE public.positions OWNER TO worker;
+
+--
+-- TOC entry 214 (class 1259 OID 17502)
+-- Name: positions_id_seq; Type: SEQUENCE; Schema: public; Owner: worker
+--
+
+CREATE SEQUENCE public.positions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.positions_id_seq OWNER TO worker;
+
+--
+-- TOC entry 3405 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: positions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: worker
+--
+
+ALTER SEQUENCE public.positions_id_seq OWNED BY public.positions.id;
+
+
+--
+-- TOC entry 3230 (class 2604 OID 17499)
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
+
+
+--
+-- TOC entry 3232 (class 2604 OID 17518)
+-- Name: employees id; Type: DEFAULT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.employees ALTER COLUMN id SET DEFAULT nextval('public.employees_id_seq'::regclass);
+
+
+--
+-- TOC entry 3229 (class 2604 OID 17492)
+-- Name: genders id; Type: DEFAULT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.genders ALTER COLUMN id SET DEFAULT nextval('public.genders_id_seq'::regclass);
+
+
+--
+-- TOC entry 3231 (class 2604 OID 17506)
+-- Name: positions id; Type: DEFAULT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.positions ALTER COLUMN id SET DEFAULT nextval('public.positions_id_seq'::regclass);
+
+
+--
+-- TOC entry 3392 (class 0 OID 17496)
+-- Dependencies: 213
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: worker
+--
+
+COPY public.categories (id, title) FROM stdin;
+1	рабочая специальность
+2	специалист
+3	служащий
+\.
+
+
+--
+-- TOC entry 3396 (class 0 OID 17515)
+-- Dependencies: 217
+-- Data for Name: employees; Type: TABLE DATA; Schema: public; Owner: worker
+--
+
+COPY public.employees (id, fio, gender_id, age, position_id, address, created_at, updated_at) FROM stdin;
+1	Сергеев Сергей Сергеевич	1	27	1	\N	2022-05-27 14:54:29.776486	2022-05-27 14:54:29.776486
+2	Иванов Иван Иванович	1	38	2	\N	2022-05-27 14:54:29.776486	2022-05-27 14:54:29.776486
+3	Семенов Семен Семенович	1	43	3	\N	2022-05-27 14:54:29.776486	2022-05-27 14:54:29.776486
+4	Привалова Надежда Сергеевна	2	56	3	\N	2022-05-27 14:54:29.776486	2022-05-27 14:54:29.776486
+5	Старовойтова Светлана Ивановна	2	47	2	\N	2022-05-27 14:54:29.776486	2022-05-27 14:54:29.776486
+6	Аникина Екатерина Викторовна	2	31	3	\N	2022-05-27 14:54:29.776486	2022-05-27 14:54:29.776486
+\.
+
+
+--
+-- TOC entry 3388 (class 0 OID 17479)
+-- Dependencies: 209
+-- Data for Name: flyway_schema_history; Type: TABLE DATA; Schema: public; Owner: worker
+--
+
+COPY public.flyway_schema_history (installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success) FROM stdin;
+1	1	init	SQL	V1__init.sql	973533358	worker	2022-05-27 14:54:29.776486	13	t
+\.
+
+
+--
+-- TOC entry 3390 (class 0 OID 17489)
+-- Dependencies: 211
+-- Data for Name: genders; Type: TABLE DATA; Schema: public; Owner: worker
+--
+
+COPY public.genders (id, title) FROM stdin;
+1	М
+2	Ж
+\.
+
+
+--
+-- TOC entry 3394 (class 0 OID 17503)
+-- Dependencies: 215
+-- Data for Name: positions; Type: TABLE DATA; Schema: public; Owner: worker
+--
+
+COPY public.positions (id, title, category_id) FROM stdin;
+1	слесарь	1
+2	инженер-электроник	2
+3	мастер	3
+\.
+
+
+--
+-- TOC entry 3406 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: worker
+--
+
+SELECT pg_catalog.setval('public.categories_id_seq', 3, true);
+
+
+--
+-- TOC entry 3407 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: employees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: worker
+--
+
+SELECT pg_catalog.setval('public.employees_id_seq', 6, true);
+
+
+--
+-- TOC entry 3408 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: genders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: worker
+--
+
+SELECT pg_catalog.setval('public.genders_id_seq', 2, true);
+
+
+--
+-- TOC entry 3409 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: positions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: worker
+--
+
+SELECT pg_catalog.setval('public.positions_id_seq', 3, true);
+
+
+--
+-- TOC entry 3241 (class 2606 OID 17501)
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3245 (class 2606 OID 17524)
+-- Name: employees employees_pkey; Type: CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.employees
+    ADD CONSTRAINT employees_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3236 (class 2606 OID 17486)
+-- Name: flyway_schema_history flyway_schema_history_pk; Type: CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.flyway_schema_history
+    ADD CONSTRAINT flyway_schema_history_pk PRIMARY KEY (installed_rank);
+
+
+--
+-- TOC entry 3239 (class 2606 OID 17494)
+-- Name: genders genders_pkey; Type: CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.genders
+    ADD CONSTRAINT genders_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3243 (class 2606 OID 17508)
+-- Name: positions positions_pkey; Type: CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.positions
+    ADD CONSTRAINT positions_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3237 (class 1259 OID 17487)
+-- Name: flyway_schema_history_s_idx; Type: INDEX; Schema: public; Owner: worker
+--
+
+CREATE INDEX flyway_schema_history_s_idx ON public.flyway_schema_history USING btree (success);
+
+
+--
+-- TOC entry 3247 (class 2606 OID 17525)
+-- Name: employees employees_gender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.employees
+    ADD CONSTRAINT employees_gender_id_fkey FOREIGN KEY (gender_id) REFERENCES public.genders(id);
+
+
+--
+-- TOC entry 3248 (class 2606 OID 17530)
+-- Name: employees employees_position_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.employees
+    ADD CONSTRAINT employees_position_id_fkey FOREIGN KEY (position_id) REFERENCES public.positions(id);
+
+
+--
+-- TOC entry 3246 (class 2606 OID 17509)
+-- Name: positions positions_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: worker
+--
+
+ALTER TABLE ONLY public.positions
+    ADD CONSTRAINT positions_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.categories(id);
+
+
+-- Completed on 2022-05-27 15:04:43 +07
+
+--
+-- PostgreSQL database dump complete
+--
+
